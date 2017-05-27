@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>qqmusic</title>
+  <link rel="stylesheet" href="./css/qqmusic.css">
+</head>
+<body>
+  <audio controls="true" src="./musics/1.mp3" style="display:none"></audio>
+  <input type="checkbox" checked style="display:none" id="fold-bt">
+  <div class="my-player" id="my-player">
+    <label for="fold-bt" class="fold-bt"></label>
+    <button class="icon fold-bt" title="点击收起/展开"></button>
+    <div class="my-player-dock" id="song-frame">
+      <ul class="music-info">
+        <li class="music-pic">
+          <a href=""><image src=""/></a>
+        </li>
+        <li class="music-info-main">
+          <p class="music-name">
+            <span class="music-name-t">听我想听的歌</span>
+            <a href="" class="icon music-radio"></a>
+          </p>
+          <p class="singer-name">QQ音乐</p>
+          <p class="play-date" id="ptime"></p>
+          <p class="music-op">
+            <span class="icon btn-like" title="喜欢"></span>
+            <span class="icon btn-share" title="分享"></span>
+          </p>
+        </li>
+      </ul>
+      <ul class="player-bar">
+        <li class="player-bg-bar"></li>
+        <li class="current-bar"></li>
+        <li class="progress-bar"></li>
+      </ul>
+      <ul class="bar-op">
+        <li class="icon prev-btn" title="上一首"></li>
+        <li class="icon play-btn" title="播放/暂停" id="pause"></li>
+        <li class="icon next-btn" title="下一首"></li>
+        <li class="icon cycle-btn" title="播放模式"></li>
+        <div class="volume" title="音量调节">
+          <div class="icon volume-icon" title="点击设为静音"></div>
+          <ul class="volume-regulate">
+            <li class="valume-bar"></li>
+            <li class="icon valume-op"></li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+    <label class="icon open-list" for="close" title="展开/收起播放列表">
+      <span>2</span>
+    </label>
+    <div class="icon btn-lyrics" id="btnlrc"></div>
+    <input type="checkbox" id="close" style="display:none">
+    <div class="player-list-frame">
+      <div class="play-list-title">
+        <ul class="tab-container">
+          <li class="current"><a href="">播放列表</a></li>
+        </ul>
+        <span class="clear-list">清空列表</span>
+        <div class="close-wrapper">
+          <label for="close" class="close">
+            <span class="icon close-list" title="收起播放列表"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="play-list">
+         <div class="play-list-main">
+           <ul class="music-list">
+             <!-- <li>
+               <span class="music-name">xy2-002长安</span>
+               <span class="singer-name">网易</span>
+               <span class="play-time">1：43</span>
+             </li>
+             <li>
+               <span class="music-name">xy2-001大唐境内</span>
+               <span class="singer-name">网易</span>
+               <span class="play-time">2：16</span>
+             </li> -->
+           </ul>
+         </div>
+      </div>
+    </div>
+  </div>
+  <script src="./bower_components/jquery/dist/jquery.js"></script>
+
+  <script src="./js/qqmusic.js"></script>
+</body>
+</html>

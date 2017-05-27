@@ -1,0 +1,37 @@
+[
+  {
+    "filename": "./musics/1.mp3",
+    "duration": "03:14",
+    "title": "Best Day Of My Life",
+    "album": "Best Day Of My Life - Single",
+    "artist": "American Authors"
+  },
+  {
+    "filename": "./musics/2.mp3",
+    "duration": "02:49",
+    "title": "Go Big Or Go Home",
+    "album": "Go Big Or Go Home",
+    "artist": "American Authors"
+  },
+  {
+    "filename": "./musics/3.mp3",
+    "duration": "03:26",
+    "title": "If You Feel My Love",
+    "album": "If You Feel My Love",
+    "artist": "Blaxy Girls"
+  },
+  {
+    "filename": "./musics/4.mp3",
+    "duration": "03:49",
+    "title": "U Make Me Wanna",
+    "album": "One Love",
+    "artist": "Blue"
+  },
+  {
+    "filename": "./musics/5.mp3",
+    "duration": "03:43",
+    "title": "Roar",
+    "album": "Roar",
+    "artist": "Katy Perry"
+  }
+]

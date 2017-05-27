@@ -1,0 +1,289 @@
+%reset{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+  font-family: 'Roboto Condensed', 'Arial', 'sans-serif';
+}
+ul,li,h1,h2,h3,h4,h5,h6,p,div,a{
+  @extend %reset;
+  text-decoration: none;
+}
+@mixin position($top,$right,$bottom,$left){
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin size($width,$height){
+  width: $width;
+  height: $height;
+}
+$img-position : (
+  'fold-bt' : 0 0,
+  'open-list' : -222px -97px,
+  'btn-lyrics' : -452px 0,
+  'music-radio' : -453px -55px,
+  'btn-like' : 0 -127px,
+  'btn-share' : -16px -127px,
+  'prev-btn' : -69px 0,
+  'next-btn' : -147px 0,
+  'play-btn' : -105px 0,
+  'cycle-btn' : -219px 0,
+  'volume-icon' : -189px -3px,
+  'valume-op' : -366px 0,
+  'close-list' : -269px -97px,
+  'pause-btn' : -290px -85px,
+  'volume-mute' : -155px -63px,
+);
+$url : url(../images/player_bg.png);
+@each $class-name in map-keys($img-position){
+  $off : map-get($img-position, $class-name);
+  #my-player .icon.#{$class-name}{
+    background: $url;
+    background-position: $off;
+  }
+}
+#fold-bt:checked + #my-player{
+  left: -536px;
+}
+#fold-bt:checked + #my-player .fold-bt{
+  background-position: -24px 0;
+}
+#my-player{
+  @include size(536px,115px)
+    position: fixed;
+    left: 0;
+    bottom: 20px;
+    z-index: 10;
+    box-shadow: 3px 3px 6px rgba(0,0,0,.42);
+    border-radius: 4px;
+    transition: left .5s ease;
+    .fold-bt{
+      display: block;
+      @include size(22px,115px)
+      border: 0;
+      @include position(0,null,null,100%)
+    }
+    >label{
+      z-index: 100;
+    }
+    .my-player-dock{
+      @include size(541px,115px)
+      background: #000;
+    }
+    .open-list{
+      @include size(47px,28px)
+      @include position(0,61px,null,null)
+      display: block;
+      span{
+        @include size(24px,28px)
+        color: #FFF;
+        font-family: tahoma;
+        font-size: 11px;
+        line-height: 28px;
+        display: inline-block;
+        text-align: center;
+        margin-left: 23px;
+      }
+    }
+    .btn-lyrics{
+      @include size(14px,14px);
+      @include position(7px,37px,null,null)
+    }
+}
+.music-info{
+  @include size(541px,111px);
+  .music-pic{
+    @include size(90px,90px);
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+  }
+  .music-info-main{
+    width: 300px;
+    font-family: tahoma;
+    float: left;
+    p{
+      margin: 5px 0;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+    }
+    .music-name .music-name-t{
+      float: left;
+      max-width: 210px;
+      color: #fff;
+    }
+    .music-name .music-radio{
+      float: left;
+      @include size(75px,20px);
+      margin: 0 0 0 10px;
+    }
+    .singer-name{
+      color: #828282;
+    }
+    .play-date{
+      color: #595959;
+    }
+    .music-op span{
+      display: inline-block;
+      @include size(16px,15px);
+      margin: 0 2px 0 0;
+      cursor: pointer;
+    }
+  }
+}
+.player-bar{
+  @include size(541px,4px);
+  position: relative;
+  .player-bg-bar{
+    @include size(100%,4px);
+    background: #323232;
+  }
+  .current-bar{
+    @include size(0,4px);
+    cursor: pointer;
+    background: #0cc65b;
+    @include position(null,null,0,0)
+  }
+  .progress-bar{
+    @include size(7px,6px);
+    @include position(null,null,-1px,0);
+    z-index: 3;
+    background: url(../images/progress_op.png);
+  }
+}
+.bar-op{
+  @include size(280px,42px);
+  @include position(43px,0,0,248px);
+  >li{
+    @include size(36px,28px);
+    float: left;
+    margin: 7px 0 0 3px;
+    cursor: pointer;
+  }
+  .play-btn,.pause-btn{
+    @include size(42px,42px);
+    margin-top: 0;
+  }
+  .volume{
+    @include size(100px,24px);
+    margin: 10px 0 0 8px;
+    float: left;
+    .volume-icon,.volume-mute{
+      @include size(24px,24px);
+      float: left;
+    }
+    .volume-regulate{
+      @include size(71px,3px);
+      background: #535353;
+      float: left;
+      margin: 9px 0 5px 5px;
+      position: relative;
+      .valume-bar{
+        @include size(30%,3px);
+        background: #8E8E8E;
+        @include position(null,null,0,0)
+      }
+      .valume-op{
+        @include size(6px,8px);
+        @include position(-4px,null,null,30%)
+      }
+    }
+  }
+}
+label.open{
+  display: block;
+  width: 100%;
+  height: 100%;
+  span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .open-list{
+    display: block;
+    @include size(20px,20px);
+    cursor: pointer;
+  }
+}
+.player-list-frame{
+  @include size(541px,auto);
+  @include position(-507px,0,null,null);
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.42);
+  transition: opacity .5s ease,top .5s ease;
+  .play-list-title{
+    background: #000;
+    ul>li a{
+      display: inline-block;
+      color: #FFF;
+      font-size: 18px;
+      font-family: "微软雅黑";
+      height: 52px;
+      background: #262626;
+      line-height: 52px;
+      padding: 0 20px;
+    }
+    label.close{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .clear-list{
+      color: #999;
+      @include position(18px,31px,null,null)
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .close-wrapper{
+      @include size(20px,20px);
+      @include position(3px,7px,null,null);
+    }
+    .close-list{
+      display: block;
+      @include size(20px,20px);
+      cursor: pointer;
+    }
+  }
+  .play-list{
+    height: 455px;
+    position: relative;
+    background: #1b1b1b;
+    border-top: solid 1px #262626;
+    z-index: 1;
+    .play-list-main .music-list{
+      width: 529px;
+      li {
+        margin: 2px 0 3px 0;
+        padding-left: 20px;
+        line-height: 24px;
+        cursor: pointer;
+      }
+      li span{
+        color: #999;
+        font-size: 12px;
+      }
+      li.active span{
+        color: #0A9B48;
+      }
+      li .music-name{
+        display: inline-block;
+        vertical-align: top;
+        width: 254px;
+        overflow: hidden;
+      }
+      li .singer-name{
+        display: inline-block;
+        width: 180px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+#close:checked + .player-list-frame {
+  top: 0;
+  opacity: 0;
+}
